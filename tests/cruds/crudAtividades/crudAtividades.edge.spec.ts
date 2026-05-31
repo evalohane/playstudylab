@@ -3,7 +3,7 @@ import { LoginPage } from '../../../pages/LoginPage';
 import { AtividadesPage } from '../../../pages/AtividadesPage';
 
 test.describe('CRUD Atividades - Borda', () => {
-    test('deve exibir erro ao tentar cadastrar atividade com apenas espacos na descricao', async ({ page }) => {
+    test('deve exibir erro ao tentar cadastrar atividade com data no passado', async ({ page }) => {
         const loginPage = new LoginPage(page);
         const atividadesPage = new AtividadesPage(page);
 
@@ -12,7 +12,7 @@ test.describe('CRUD Atividades - Borda', () => {
         await loginPage.verificarLogin();
 
         await atividadesPage.goto();
-        await atividadesPage.cadastrarAtividade('@#$%¨&*', '138', 'amanha', 'pending');
-        await atividadesPage.verificarErroCampo('A descrição contém caracteres inválidos.');
+        await atividadesPage.cadastrarAtividadeComDataPassada('Trabalho de mobile', '138', '2026-05-30', 'pending');
+        await atividadesPage.verificarErroCampo('A data não pode estar no passado.');
     });
 });

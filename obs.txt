@@ -2,6 +2,4 @@ TESTES FEITOS:
 1. login (happy, sad, edge)
 2. crud materias (happy, sad, edge)
 3. crud atividades (happy, sad, edge)
-    - Edge nao esta em funcionamento completo. Descricao do problema: Teste nao retorna mensagem de erro quando executado no --headed (So retorna quando o teste e executado manualmente)
 4. crud conteudos (happy)
-    - Happy nao esta em funcionamento completo. Descricao do problema: Precisa atualizar a pagina pra conseguir editar.
