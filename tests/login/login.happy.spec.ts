@@ -1,14 +1,12 @@
 import { test, expect } from '@playwright/test';
+import { LoginPage } from '../../pages/LoginPage';
 
-test('deve realizar login com sucesso', async ({ page }) => {
-    await page.goto('https://studylab.free.laravel.cloud/');
-    await page.getByRole('link', { name: 'Entrar' }).click();
+test.describe('Login - Feliz', () => {
+    test('deve realizar login com sucesso', async ({ page }) => {
+        const loginPage = new LoginPage(page);
 
-    await page.getByRole('textbox', { name: 'nome@exemplo.com' }).fill('evaomnibus@oisaulo.com');
-    await page.getByRole('textbox', { name: '••••••••' }).fill('Lielsonli123!');
-
-    await page.getByRole('button', { name: 'Entrar na plataforma' }).click();
-
-    // verifica se redereciona para dashboard
-    await expect(page).toHaveURL(/dashboard/, { timeout: 15000 });
+        await loginPage.goto();
+        await loginPage.login('evaomnibus@oisaulo.com', 'Lielsonli123!');
+        await loginPage.verificarLogin();
+    });
 });

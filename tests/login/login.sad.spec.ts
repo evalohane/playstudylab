@@ -1,14 +1,12 @@
 import { test, expect } from '@playwright/test';
+import { LoginPage } from '../../pages/LoginPage';
 
-test('deve exibir erro com credenciais inválidas', async ({ page }) => {
-    await page.goto('https://studylab.free.laravel.cloud/');
-    await page.getByRole('link', { name: 'Entrar' }).click();
+test.describe('Login - Triste',() => {
+    test('deve exibir erro com credenciais inválidas', async ({ page }) => {
+        const loginPage = new LoginPage(page);
 
-    await page.getByRole('textbox', { name: 'nome@exemplo.com' }).fill('email@errado.com');
-    await page.getByRole('textbox', { name: '••••••••' }).fill('senhaerrada');
-
-    await page.getByRole('button', { name: 'Entrar na plataforma' }).click();
-
-    // verifica se aparece mensagem de erro
-    await expect(page.getByText('Credenciais inválidas')).toBeVisible();
+        await loginPage.goto();
+        await loginPage.login('email@errado.com', 'senhaerrada');
+        await loginPage.verificarErroCredenciais();
+    });
 });
