@@ -41,4 +41,8 @@ export class AtividadesPage {
     async verificarExclusao(nome: string) {
         await expect(this.page.getByRole('cell', { name: nome })).not.toBeVisible({ timeout: 10000 });
     }
+
+    async verificarErroCampo(mensagem: string) {
+        await expect(this.page.getByText(mensagem)).toBeVisible({ timeout: 10000 });
+    }
 }
