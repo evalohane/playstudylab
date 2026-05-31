@@ -3,3 +3,7 @@ TESTES FEITOS:
 2. crud materias (happy, sad, edge)
 3. crud atividades (happy, sad, edge)
 4. crud conteudos (happy)
+
+PROXIMAS ALTERACOES:
+1. juntar os tres tipos de teste (happy, sad, edge) em um arquivo so para cada crud
+2. terminar os testes do crud de conteudos
