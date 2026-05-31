@@ -1,0 +1,9 @@
+teste de borda do crud de atividades nao retorna mensagem de erro que deveria retornar quando eu uso o --headed , mas quando testo manualmente aparece normalmente, acho que e bug do sistema
+
+teste happy do crud de conteudos nao tava dando certo na hora de editar o conteudo, acho que e bug do sistema mas nao tenho certeza
+
+TESTES FEITOS:
+1. login (happy, sad, edge)
+2. crud materias (happy, sad, edge)
+3. crud atividades (happy, sad, edge(edge nao esta em funcionamento completo))
+4. crud conteudos (happy(nao esta em funcionamento completo))
