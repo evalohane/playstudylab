@@ -2,8 +2,8 @@ import { test } from '@playwright/test';
 import { LoginPage } from '../../../pages/LoginPage';
 import { AtividadesPage } from '../../../pages/AtividadesPage';
 
-test.describe('CRUD Atividades - Triste', () => {
-    test('deve exibir erro ao tentar cadastrar atividade sem descricao', async ({ page }) => {
+test.describe('CRUD Atividades - Borda', () => {
+    test('deve exibir erro ao tentar cadastrar atividade com apenas espacos na descricao', async ({ page }) => {
         const loginPage = new LoginPage(page);
         const atividadesPage = new AtividadesPage(page);
 
@@ -12,7 +12,7 @@ test.describe('CRUD Atividades - Triste', () => {
         await loginPage.verificarLogin();
 
         await atividadesPage.goto();
-        await atividadesPage.cadastrarAtividade('', '136', '1mes', 'pending');
-        await atividadesPage.verificarErroCampo('Informe a descrição.');
+        await atividadesPage.cadastrarAtividade('@#$%¨&*', '138', 'amanha', 'pending');
+        await atividadesPage.verificarErroCampo('A descrição contém caracteres inválidos.');
     });
 });
