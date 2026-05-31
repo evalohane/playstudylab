@@ -1,11 +1,7 @@
-teste de borda do crud de atividades nao retorna mensagem de erro que deveria retornar quando eu uso o --headed , mas quando testo manualmente aparece normalmente, acho que e bug do sistema
-
-teste happy do crud de conteudos nao tava dando certo na hora de editar o conteudo, acho que e bug do sistema mas nao tenho certeza
-
 TESTES FEITOS:
 1. login (happy, sad, edge)
 2. crud materias (happy, sad, edge)
 3. crud atividades (happy, sad, edge)
     - Edge nao esta em funcionamento completo. Descricao do problema: Teste nao retorna mensagem de erro quando executado no --headed (So retorna quando o teste e executado manualmente)
 4. crud conteudos (happy)
-    - Happy nao esta em funcionamento completo. Descricao do probleam: Precisa atualizar a pagina pra conseguir editar.
+    - Happy nao esta em funcionamento completo. Descricao do problema: Precisa atualizar a pagina pra conseguir editar.
