@@ -43,6 +43,16 @@ export class AtividadesPage {
     }
 
     async verificarErroCampo(mensagem: string) {
+        await this.page.waitForTimeout(3000);
         await expect(this.page.getByText(mensagem)).toBeVisible({ timeout: 10000 });
+    }
+
+    async cadastrarAtividadeComDataPassada(nome: string, materia: string, data: string, status: string) {
+        await this.page.getByRole('button', { name: 'Nova atividade' }).click();
+        await this.page.getByRole('textbox', { name: 'Ex: Fazer exercícios do capí' }).fill(nome);
+        await this.page.locator('#modalSubjectId').selectOption(materia);
+        await this.page.locator('#modalDueDate').fill(data);
+        await this.page.locator('#modalStatus').selectOption(status);
+        await this.page.getByRole('button', { name: 'Salvar atividade' }).click();
     }
 }

@@ -43,8 +43,8 @@ export class MateriasPage {
         await expect(this.page.getByRole('cell', { name: nome })).not.toBeVisible({ timeout: 10000 });
     }
 
-    // verificacao de erro em campos preenchidos com informacoes nao aceitas
     async verificarErroCampo(mensagem: string) {
+        await this.page.waitForTimeout(3000);
         await expect(this.page.getByText(mensagem)).toBeVisible();
     }
 }

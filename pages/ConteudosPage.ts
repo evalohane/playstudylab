@@ -33,7 +33,7 @@ export class ConteudosPage {
     }
 
     async excluirConteudo() {
-        await this.page.getByRole('button', { name: 'Excluir' }).nth(3).click();
+        await this.page.getByRole('button', { name: 'Excluir' }).nth(0).click();
         await this.page.getByRole('button', { name: 'Sim, excluir' }).click();
     }
 
