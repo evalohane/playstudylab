@@ -18,6 +18,7 @@ export class LoginPage {
         await expect(this.page).toHaveURL(/dashboard/, { timeout: 15000 });
     }
 
+    // verificacao de erro de credenciais
     async verificarErroCredenciais() {
         await expect(this.page.getByText('Credenciais inválidas')).toBeVisible();
     }

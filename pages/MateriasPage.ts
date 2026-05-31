@@ -1,0 +1,50 @@
+import { Page, expect } from '@playwright/test';
+
+export class MateriasPage {
+    constructor(private page: Page) {}
+
+    async goto() {
+        await this.page.getByRole('button', { name: 'Fixar menu' }).click();
+        await this.page.getByRole('link', { name: 'Matérias Matérias' }).click();
+        await this.page.getByRole('link', { name: 'Ver matérias' }).click();
+    }
+    
+    // create
+    async cadastrarMateria(nome: string, professor: string, semestre: string) {
+        await this.page.getByRole('button', { name: 'Adicionar matéria' }).click();
+        await this.page.locator('#modalSubjectName').selectOption(nome);
+        await this.page.getByRole('textbox', { name: 'Ex: Prof. João Silva' }).fill(professor);
+        await this.page.locator('#modalSubjectSemester').selectOption(semestre);
+        await this.page.getByRole('button', { name: 'Salvar matéria' }).click();
+    }
+
+    async verificarCadastro(nome: string) {
+        await expect(this.page.getByRole('cell', { name: nome })).toBeVisible({ timeout: 10000 });
+    }
+
+    // edit
+    async editarMateria(professor: string) {
+        await this.page.getByRole('button', { name: 'Editar' }).nth(1).click();
+        await this.page.getByRole('textbox', { name: 'Ex: Prof. João Silva' }).fill(professor);
+        await this.page.getByRole('button', { name: 'Salvar alterações' }).click();
+    }
+
+    async verificarEdicao(professor: string) {
+        await expect(this.page.getByRole('cell', { name: professor })).toBeVisible({ timeout: 10000 });
+    }
+
+    // delete
+    async excluirMateria() {
+        await this.page.getByRole('button', { name: 'Excluir' }).nth(1).click();
+        await this.page.getByRole('button', { name: 'Sim, excluir' }).click();
+    }
+
+    async verificarExclusao(nome: string) {
+        await expect(this.page.getByRole('cell', { name: nome })).not.toBeVisible({ timeout: 10000 });
+    }
+
+    // verificacao de erro em campos preenchidos com informacoes nao aceitas
+    async verificarErroCampo(mensagem: string) {
+        await expect(this.page.getByText(mensagem)).toBeVisible();
+    }
+}
