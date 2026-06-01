@@ -40,4 +40,9 @@ export class ConteudosPage {
     async verificarExclusao(nome: string) {
         await expect(this.page.getByRole('cell', { name: nome })).not.toBeVisible({ timeout: 10000 });
     }
+
+    async verificarErroCampo(mensagem: string) {
+        await this.page.waitForTimeout(3000);
+        await expect(this.page.getByText(mensagem)).toBeVisible({ timeout: 10000 });
+    }
 }
