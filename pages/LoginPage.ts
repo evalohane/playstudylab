@@ -18,7 +18,8 @@ export class LoginPage {
         await expect(this.page).toHaveURL(/dashboard/, { timeout: 15000 });
     }
 
-    async verificarErroCredenciais() {
-        await expect(this.page.getByText('Credenciais inválidas')).toBeVisible({ timeout: 10000 });
+    async verificarErroCredenciais(mensagem: string) {
+        await this.page.waitForTimeout(3000);
+        await expect(this.page.getByText(mensagem)).toBeVisible({ timeout: 10000 });
     }
 }

@@ -6,3 +6,4 @@ TESTES FEITOS:
 
 PROXIMAS ALTERACOES:
 1. juntar os tres tipos de teste (happy, sad, edge) em um arquivo so para cada crud
+2. teste de borda do login ta bugado 

@@ -8,16 +8,14 @@ test.describe('Login - Borda', () => {
         const loginPage = new LoginPage(page);
 
         await loginPage.goto();
-        await page.locator('#togglePwd').click();
         await loginPage.login('teste0225@gmail.com', 'Lielsonli123!'); // note que a senha esta sem os espacos, e dessa forma DEVERIA funcionar, mas nao vai redirecionar para o dashboard e sim dar erro
-        await loginPage.verificarErroCredenciais();
+        await loginPage.verificarErroCredenciais('Credenciais inválidas');
     });
 
     test('deve logar quando senha cadastrada com espaços é digitada com espaços', async ({ page }) => {
         const loginPage = new LoginPage(page);
 
         await loginPage.goto();
-        await page.locator('#togglePwd').click();
         await loginPage.login('teste0225@gmail.com', '   Lielsonli123!   '); // com espaços, vai funcionar e entrar no dashboard
     });
 });

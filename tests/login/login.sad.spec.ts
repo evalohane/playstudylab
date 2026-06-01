@@ -7,6 +7,6 @@ test.describe('Login - Triste',() => {
 
         await loginPage.goto();
         await loginPage.login('email@errado.com', 'senhaerrada');
-        await loginPage.verificarErroCredenciais();
+        await loginPage.verificarErroCredenciais('Credenciais inválidas');
     });
 });
