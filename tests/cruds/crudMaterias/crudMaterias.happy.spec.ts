@@ -12,13 +12,13 @@ test.describe('CRUD Matérias - Feliz', () => {
         await loginPage.verificarLogin();
 
         await materiasPage.goto();
-        await materiasPage.cadastrarMateria('Inteligência Artificial', 'Viviane', '5');
-        await materiasPage.verificarCadastro('Inteligência Artificial');
+        await materiasPage.cadastrarMateria('Filosofia', 'Ana Claudia', '10');
+        await materiasPage.verificarCadastro('Filosofia');
 
-        await materiasPage.editarMateria('Prof. Viviane de Menezes');
-        await materiasPage.verificarEdicao('Prof. Viviane de Menezes');
+        await materiasPage.editarMateria('Prof. Ana Claudia Anibal');
+        await materiasPage.verificarEdicao('Prof. Ana Claudia Anibal');
 
         await materiasPage.excluirMateria();
-        await materiasPage.verificarExclusao('Inteligência Artificial');
+        await materiasPage.verificarExclusao('Filosofia');
     });
 });
