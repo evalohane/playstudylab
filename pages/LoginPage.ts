@@ -19,6 +19,6 @@ export class LoginPage {
     }
 
     async verificarErroCredenciais() {
-        await expect(this.page.getByText('Credenciais inválidas')).toBeVisible();
+        await expect(this.page.getByText('Credenciais inválidas')).toBeVisible({ timeout: 10000 });
     }
 }

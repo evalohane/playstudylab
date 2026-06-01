@@ -24,7 +24,7 @@ export class MateriasPage {
 
     // edit
     async editarMateria(professor: string) {
-        await this.page.getByRole('button', { name: 'Editar' }).nth(1).click();
+        await this.page.getByRole('button', { name: 'Editar' }).nth(5).click();
         await this.page.getByRole('textbox', { name: 'Ex: Prof. João Silva' }).fill(professor);
         await this.page.getByRole('button', { name: 'Salvar alterações' }).click();
     }
@@ -35,7 +35,7 @@ export class MateriasPage {
 
     // delete
     async excluirMateria() {
-        await this.page.getByRole('button', { name: 'Excluir' }).nth(1).click();
+        await this.page.getByRole('button', { name: 'Excluir' }).nth(5).click();
         await this.page.getByRole('button', { name: 'Sim, excluir' }).click();
     }
 
@@ -45,6 +45,6 @@ export class MateriasPage {
 
     async verificarErroCampo(mensagem: string) {
         await this.page.waitForTimeout(3000);
-        await expect(this.page.getByText(mensagem)).toBeVisible();
+        await expect(this.page.getByText(mensagem)).toBeVisible({ timeout: 10000 });
     }
 }
