@@ -6,16 +6,18 @@ export class LoginPage {
     async goto() {
         await this.page.goto('https://studylab.free.laravel.cloud/');
         await this.page.getByRole('link', { name: 'Entrar' }).click();
+        await this.page.waitForURL('**/login', { timeout: 15000 });
     }
 
     async login(email: string, senha: string) {
         await this.page.getByRole('textbox', { name: 'nome@exemplo.com' }).fill(email);
         await this.page.getByRole('textbox', { name: '••••••••' }).fill(senha);
         await this.page.getByRole('button', { name: 'Entrar na plataforma' }).click();
+        await this.page.waitForLoadState('networkidle', { timeout: 20000 });
     }
 
     async verificarLogin() {
-        await expect(this.page).toHaveURL(/dashboard/, { timeout: 15000 });
+        await expect(this.page).toHaveURL(/dashboard/, { timeout: 20000 });
     }
 
     async verificarErroCredenciais(mensagem: string) {

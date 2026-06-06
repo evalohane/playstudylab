@@ -1,7 +1,7 @@
 {
   "name": "playstudylab",
   "version": "1.0.0",
-  "description": "",
+  "description": "Alunas: Eva Lohane Costa Cordeiro (9) e Marianne Moreira Lima",
   "main": "index.js",
   "scripts": {},
   "keywords": [],
@@ -11,5 +11,16 @@
   "devDependencies": {
     "@playwright/test": "^1.60.0",
     "@types/node": "^25.9.1"
-  }
+  },
+  "directories": {
+    "test": "tests"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/evalohane/playstudylab.git"
+  },
+  "bugs": {
+    "url": "https://github.com/evalohane/playstudylab/issues"
+  },
+  "homepage": "https://github.com/evalohane/playstudylab#readme"
 }
