@@ -13,7 +13,6 @@ export class LoginPage {
         await this.page.getByRole('textbox', { name: 'nome@exemplo.com' }).fill(email);
         await this.page.getByRole('textbox', { name: '••••••••' }).fill(senha);
         await this.page.getByRole('button', { name: 'Entrar na plataforma' }).click();
-        await this.page.waitForLoadState('networkidle', { timeout: 20000 });
     }
 
     async verificarLogin() {
