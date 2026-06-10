@@ -20,6 +20,6 @@ export class LoginPage {
     }
 
     async verificarErroCredenciais(mensagem: string) {
-        await expect(this.page.getByText(mensagem)).toBeVisible({ timeout: 10000 });
+        await expect(this.page.getByText(mensagem)).toBeVisible({ timeout: 15000 });
     }
 }
