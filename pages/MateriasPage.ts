@@ -9,7 +9,6 @@ export class MateriasPage {
         await this.page.getByRole('link', { name: 'Ver matérias' }).click();
     }
     
-    // create
     async cadastrarMateria(nome: string, professor: string, semestre: string) {
         await this.page.getByRole('button', { name: 'Adicionar matéria' }).click();
         await this.page.locator('#modalSubjectName').selectOption(nome);
@@ -22,9 +21,8 @@ export class MateriasPage {
         await expect(this.page.getByRole('cell', { name: nome })).toBeVisible({ timeout: 10000 });
     }
 
-    // edit
     async editarMateria(professor: string) {
-        await this.page.getByRole('button', { name: 'Editar' }).nth(5).click();
+        await this.page.getByRole('button', { name: 'Editar' }).nth(4).click();
         await this.page.getByRole('textbox', { name: 'Ex: Prof. João Silva' }).fill(professor);
         await this.page.getByRole('button', { name: 'Salvar alterações' }).click();
     }
@@ -33,9 +31,8 @@ export class MateriasPage {
         await expect(this.page.getByRole('cell', { name: professor })).toBeVisible({ timeout: 10000 });
     }
 
-    // delete
     async excluirMateria() {
-        await this.page.getByRole('button', { name: 'Excluir' }).nth(5).click();
+        await this.page.getByRole('button', { name: 'Excluir' }).nth(4).click();
         await this.page.getByRole('button', { name: 'Sim, excluir' }).click();
     }
 

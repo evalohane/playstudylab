@@ -15,4 +15,17 @@ test.describe('CRUD Matérias - Triste', () => {
         await materiasPage.cadastrarMateria('Inglês', 'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa', '3');
         await materiasPage.verificarErroCampo('O nome não pode ter mais de 255 caracteres.');
     });
+
+    test('deve exibir erro ao tentar cadastrar professor com números/caracteres especiais', async ({ page }) => {
+        const loginPage = new LoginPage(page);
+        const materiasPage = new MateriasPage(page);
+
+        await loginPage.goto();
+        await loginPage.login('evaomnibus@oisaulo.com', 'Lielsonli123!');
+        await loginPage.verificarLogin();
+
+        await materiasPage.goto();
+        await materiasPage.cadastrarMateria('Inglês', '12345678', '5');
+        await materiasPage.verificarErroCampo('O campo professor não pode conter números ou caracteres especiais.');
+    });
 });
