@@ -23,7 +23,7 @@ export class ConteudosPage {
     }
 
     async editarConteudo(nome: string) {
-        await this.page.getByRole('button', { name: 'Editar' }).nth(0).click();
+        await this.page.getByRole('button', { name: 'Editar' }).nth(1).click();
         await this.page.getByRole('textbox', { name: 'Ex: Derivadas e integrais,' }).fill(nome);
         await this.page.getByRole('button', { name: 'Salvar alterações' }).click();
     }
@@ -33,7 +33,7 @@ export class ConteudosPage {
     }
 
     async excluirConteudo() {
-        await this.page.getByRole('button', { name: 'Excluir' }).nth(0).click();
+        await this.page.getByRole('button', { name: 'Excluir' }).nth(1).click();
         await this.page.getByRole('button', { name: 'Sim, excluir' }).click();
     }
 
@@ -44,5 +44,18 @@ export class ConteudosPage {
     async verificarErroCampo(mensagem: string) {
         await this.page.waitForTimeout(3000);
         await expect(this.page.getByText(mensagem)).toBeVisible({ timeout: 10000 });
+    }
+
+    async editarConteudoParaSemNome(nome: string) {
+        await this.page.getByRole('button', { name: 'Editar' }).nth(0).click();
+        await this.page.getByRole('textbox', { name: 'Ex: Derivadas e integrais,' }).fill(nome);
+        await this.page.getByRole('button', { name: 'Salvar alterações' }).click();
+    }
+
+    async editarConteudoComSemestreMaior(semestre: string) {
+        await this.page.getByRole('button', { name: 'Editar' }).nth(0).click();
+        await this.page.locator('#modalContentSemester').selectOption('outro');
+        await this.page.getByPlaceholder('Ex: 11').fill(semestre);
+        await this.page.getByRole('button', { name: 'Salvar alterações' }).click();
     }
 }

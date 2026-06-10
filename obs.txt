@@ -2,3 +2,7 @@ testes que estao funcionando:
 crud de materias - happy
 crud de materias - sad
 crud de materias - edge
+
+crud de conteudos - happy
+crud de conteudos - sad
+crud de conteudos - edge
