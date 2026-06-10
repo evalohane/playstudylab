@@ -44,4 +44,13 @@ export class MateriasPage {
         await this.page.waitForTimeout(3000);
         await expect(this.page.getByText(mensagem)).toBeVisible({ timeout: 10000 });
     }
+
+    async cadastrarMateriaComSemestreNegativo(nome: string, professor: string, semestre: string) {
+        await this.page.getByRole('button', { name: 'Adicionar matéria' }).click();
+        await this.page.locator('#modalSubjectName').selectOption(nome);
+        await this.page.getByRole('textbox', { name: 'Ex: Prof. João Silva' }).fill(professor);
+        await this.page.locator('#modalSubjectSemester').selectOption('outro');
+        await this.page.getByPlaceholder('Ex: 11').fill(semestre);
+        await this.page.getByRole('button', { name: 'Salvar matéria' }).click();
+    }
 }

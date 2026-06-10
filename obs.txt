@@ -1,3 +1,4 @@
 testes que estao funcionando:
 crud de materias - happy
 crud de materias - sad
+crud de materias - edge
