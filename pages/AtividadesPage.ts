@@ -43,7 +43,6 @@ export class AtividadesPage {
     }
 
     async verificarErroCampo(mensagem: string) {
-        await this.page.waitForTimeout(3000);
         await expect(this.page.getByText(mensagem)).toBeVisible({ timeout: 10000 });
     }
 
