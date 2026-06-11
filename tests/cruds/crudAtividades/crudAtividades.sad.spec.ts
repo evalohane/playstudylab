@@ -12,7 +12,7 @@ test.describe('CRUD Atividades - Triste', () => {
         await loginPage.verificarLogin();
 
         await atividadesPage.goto();
-        await atividadesPage.cadastrarAtividade('', '136', '1mes', 'pending');
+        await atividadesPage.cadastrarAtividade('', '501', '1mes', 'pending');
         await atividadesPage.verificarErroCampo('Informe a descrição.');
     });
 });

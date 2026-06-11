@@ -12,7 +12,7 @@ test.describe('CRUD Conteúdos - Borda', () => {
         await loginPage.verificarLogin();
 
         await conteudosPage.goto();
-        await conteudosPage.cadastrarConteudo('$#@%!0225', '140', 'Prof. Nayane Queiroz', '9');
+        await conteudosPage.cadastrarConteudo('$#@%!0225', '501', 'Prof. Luana', '9');
         await conteudosPage.verificarErroCampo('O nome do conteúdo não pode conter números ou caracteres especiais.');
     });
 

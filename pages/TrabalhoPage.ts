@@ -14,12 +14,6 @@ export class TrabalhoPage {
         return data.toISOString().split('T')[0];
     }
 
-    dataPassada(dias: number): string {
-        const data = new Date();
-        data.setDate(data.getDate() - dias);
-        return data.toISOString().split('T')[0];
-    }
-
     async abrirModalTrabalho(page: Page) {
         await page.goto('https://studylab.free.laravel.cloud/works');
         await page.getByRole('button', { name: 'Novo trabalho' }).click();

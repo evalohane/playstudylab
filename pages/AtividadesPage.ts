@@ -24,7 +24,7 @@ export class AtividadesPage {
     }
 
     async editarAtividade(nome: string) {
-        await this.page.getByRole('button', { name: 'Editar' }).nth(5).click();
+        await this.page.getByRole('button', { name: 'Editar' }).nth(4).click();
         await this.page.getByRole('textbox', { name: 'Ex: Fazer exercícios do capí' }).fill(nome);
         await this.page.getByRole('button', { name: 'Salvar alterações' }).click();
     }
@@ -34,7 +34,7 @@ export class AtividadesPage {
     }
 
     async excluirAtividade() {
-        await this.page.getByRole('button', { name: 'Excluir' }).nth(5).click();
+        await this.page.getByRole('button', { name: 'Excluir' }).nth(4).click();
         await this.page.getByRole('button', { name: 'Sim, excluir' }).click();
     }
 

@@ -55,10 +55,10 @@ test.describe.serial('Borda: Create e Edit', () => {
 
         // Aguarda o campo de data aparecer, preenche com ontem e tenta salvar
         await paginaGlobal.locator('#workDueDate').waitFor({ state: 'visible' });
-        await paginaGlobal.locator('#workDueDate').fill(trabalhoPage.dataPassada(1));
+        await paginaGlobal.locator('#workDueDate').fill('2026-04-08');
         await paginaGlobal.getByRole('button', { name: 'Salvar Trabalho' }).click();
 
         // Validação por palavra-chave para a mensagem de erro de data no passado
-        await expect(paginaGlobal.getByText('passado', { exact: false })).toBeVisible();
+        await expect(paginaGlobal.getByText('A data não pode estar no passado.')).toBeVisible({timeout: 10000});
     });
 });

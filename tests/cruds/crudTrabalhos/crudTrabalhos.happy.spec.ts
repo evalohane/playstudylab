@@ -14,8 +14,8 @@ test.describe.serial('Felizes: Create, Edit e Delete', () => {
 
         // 1. Acessa a página de login
         await paginaGlobal.goto('https://studylab.free.laravel.cloud/login');
-        await paginaGlobal.locator('#email').fill('m4rimolima@gmail.com');
-        await paginaGlobal.locator('#password').fill('Seinao04');
+        await paginaGlobal.locator('#email').fill('evaomnibus@oisaulo.com');
+        await paginaGlobal.locator('#password').fill('Lielsonli123!');
         
         // 2. Clica em entrar e aguarda o término das requisições de rede do login
         await Promise.all([

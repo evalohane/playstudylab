@@ -12,7 +12,7 @@ test.describe('CRUD Atividades - Borda', () => {
         await loginPage.verificarLogin();
 
         await atividadesPage.goto();
-        await atividadesPage.cadastrarAtividadeComDataPassada('Trabalho de mobile', '138', '2026-05-30', 'pending');
+        await atividadesPage.cadastrarAtividadeComDataPassada('Trabalho de mobile', '501', '2026-05-30', 'pending');
         await atividadesPage.verificarErroCampo('A data não pode estar no passado.');
     });
 });

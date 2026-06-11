@@ -12,13 +12,13 @@ test.describe('CRUD Atividades - Feliz', () => {
         await loginPage.verificarLogin();
 
         await atividadesPage.goto();
-        await atividadesPage.cadastrarAtividade('Fazer roteiro do teatro', '136', '1mes', 'pending');
-        await atividadesPage.verificarCadastro('Fazer roteiro do teatro');
+        await atividadesPage.cadastrarAtividade('Fazer modelo entidade relacionamento', '501', '1mes', 'pending');
+        await atividadesPage.verificarCadastro('Fazer modelo entidade relacionamento');
 
-        await atividadesPage.editarAtividade('Fazer roteiro do teatro para o Sao Joao da EEEP 2026');
-        await atividadesPage.verificarEdicao('Fazer roteiro do teatro para o Sao Joao da EEEP 2026');
+        await atividadesPage.editarAtividade('Fazer modelo entidade relacionamento do banco de dados');
+        await atividadesPage.verificarEdicao('Fazer modelo entidade relacionamento do banco de dados');
 
         await atividadesPage.excluirAtividade();
-        await atividadesPage.verificarExclusao('Fazer roteiro do teatro para o Sao Joao da EEEP 2026');
+        await atividadesPage.verificarExclusao('Fazer modelo entidade relacionamento do banco de dados');
     });
 });
